@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579f4a509fd2f994fa391c0c78ea3f11, type: 3}
   m_Name: Cube
   m_EditorClassIdentifier: 
-  id: de225920e18d69141b9f2948f155bf5c
+  id: 4a5004eda344c9a4ebf5ad44a7a69206
   selfId: 319efc57fdb467b48a18ddcbd44a5af0
-  editorTarget: {fileID: 3710840251176409561, guid: de225920e18d69141b9f2948f155bf5c, type: 3}
+  editorTarget: {fileID: 4294994814200760478, guid: 4a5004eda344c9a4ebf5ad44a7a69206, type: 3}
   includeInSchema: 1
   objectProvider:
-    rid: 6774179402278240514
+    rid: 6774179402278240670
   objectInstantiator:
-    rid: 6774179402278240515
+    rid: 6774179402278240671
   references:
     version: 2
     RefIds:
-    - rid: 6774179402278240514
+    - rid: 6774179402278240670
       type: {class: DirectReferenceProvider, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
       data:
-        prefab: {fileID: 3710840251176409561, guid: de225920e18d69141b9f2948f155bf5c, type: 3}
-    - rid: 6774179402278240515
+        prefab: {fileID: 4294994814200760478, guid: 4a5004eda344c9a4ebf5ad44a7a69206, type: 3}
+    - rid: 6774179402278240671
       type: {class: DefaultInstantiator, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
       data: 

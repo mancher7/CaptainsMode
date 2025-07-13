@@ -269,7 +269,6 @@ namespace Coherence.Generated
                   case 3: return AdoptOrphan.FromInterop(data, dataSize);
                   case 4: return PersistenceReady.FromInterop(data, dataSize);
                   case 5: return SceneIndexChanged.FromInterop(data, dataSize);
-                  case 6: return _714b9f8fd47e343158014373676f77d0_97320cdaa6f641c98d6f57d68520c0e5.FromInterop(data, dataSize);
             }
 
             throw new ArgumentException($"Unkown command type {type}", nameof(type));
@@ -277,6 +276,10 @@ namespace Coherence.Generated
 
         public unsafe IEntityInput GetInput(UInt32 type, IntPtr data, Int32 dataSize)
         {
+            switch (type)
+            {
+                  case 0: return _de225920e18d69141b9f2948f155bf5c.FromInterop(data, dataSize);
+            }
             throw new ArgumentException($"Unknown input type {type}", nameof(type));
         }
 
@@ -347,16 +350,6 @@ namespace Coherence.Generated
                     return sender.SendCommand(entity, target, type, val, 4);
 
                 }
-                case 6:
-                {
-                    var orig = (_714b9f8fd47e343158014373676f77d0_97320cdaa6f641c98d6f57d68520c0e5)command;
-                    var val = new _714b9f8fd47e343158014373676f77d0_97320cdaa6f641c98d6f57d68520c0e5.Interop();
-
-                    val.spawnPosition = orig.spawnPosition;
-
-                    return sender.SendCommand(entity, target, type, val, 12);
-
-                }
             }
 
             throw new NotImplementedException($"Failed to send a command with type {type}.");
@@ -365,6 +358,20 @@ namespace Coherence.Generated
         public unsafe void SendInput(INativeCoreInputSender sender, InteropEntity entity, long frame, IEntityInput input)
         {
             var type = input.GetComponentType();
+            var inputData = (InputData)input;
+            switch (type)
+            {
+                case 0:
+                {
+                    var orig = (_de225920e18d69141b9f2948f155bf5c)inputData.Input;
+                    var val = new _de225920e18d69141b9f2948f155bf5c.Interop();
+
+
+                    sender.SendInput(entity, frame, type, val, 0);
+
+                    return;
+                }
+            }
 
             throw new NotImplementedException($"Failed to send an input with type {type}.");
         }

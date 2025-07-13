@@ -20,7 +20,7 @@ namespace Coherence.Generated
 
     public class Definition : IDefinition
     {
-        public const string schemaId = "d2eddd7ae849012bcbf24f9c7cdef53f5114278b";
+        public const string schemaId = "cf4f61699e1865990006d572897e64c1c1e4de09";
         public const uint InternalWorldPosition = 0;
         public const uint InternalWorldOrientation = 1;
         public const uint InternalLocalUserComponent = 2;
@@ -45,7 +45,7 @@ namespace Coherence.Generated
         public const uint InternalAdoptOrphan = 3;
         public const uint InternalPersistenceReady = 4;
         public const uint InternalSceneIndexChanged = 5;
-        public const uint Internal_714b9f8fd47e343158014373676f77d0_97320cdaa6f641c98d6f57d68520c0e5 = 6;
+        public const uint Internal_de225920e18d69141b9f2948f155bf5c = 0;
 
         private static readonly Dictionary<uint, string> componentNamesForTypeIds = new Dictionary<uint, string>()
         {
@@ -89,7 +89,6 @@ namespace Coherence.Generated
             { Definition.InternalAdoptOrphan , MessageTarget.All },
             { Definition.InternalPersistenceReady , MessageTarget.All },
             { Definition.InternalSceneIndexChanged , MessageTarget.All },
-            { Definition.Internal_714b9f8fd47e343158014373676f77d0_97320cdaa6f641c98d6f57d68520c0e5 , MessageTarget.All },
         };
 
         public ICoherenceComponentData ReadComponentUpdate(uint componentType, AbsoluteSimulationFrame referenceSimulationFrame,
@@ -204,8 +203,6 @@ namespace Coherence.Generated
                     return PersistenceReady.Deserialize(bitStream, entity, target);
                 case Definition.InternalSceneIndexChanged:
                     return SceneIndexChanged.Deserialize(bitStream, entity, target);
-                case Definition.Internal_714b9f8fd47e343158014373676f77d0_97320cdaa6f641c98d6f57d68520c0e5:
-                    return _714b9f8fd47e343158014373676f77d0_97320cdaa6f641c98d6f57d68520c0e5.Deserialize(bitStream, entity, target);
                 default:
                     throw new System.ArgumentOutOfRangeException(nameof(commandType),
                         $"Missing serialization implementation for a command: {commandType}");
@@ -216,6 +213,8 @@ namespace Coherence.Generated
         {
             switch (inputType)
             {
+                case Definition.Internal_de225920e18d69141b9f2948f155bf5c:
+                    return _de225920e18d69141b9f2948f155bf5c.Deserialize(bitStream, entity, frame);
                 default:
                     throw new System.ArgumentOutOfRangeException(nameof(inputType),
                         $"Missing serialization implementation for an input: {inputType}");
@@ -293,9 +292,6 @@ namespace Coherence.Generated
                 case Definition.InternalSceneIndexChanged:
                     SceneIndexChanged.Serialize((SceneIndexChanged)data, bitStream);
                     break;
-                case Definition.Internal_714b9f8fd47e343158014373676f77d0_97320cdaa6f641c98d6f57d68520c0e5:
-                    _714b9f8fd47e343158014373676f77d0_97320cdaa6f641c98d6f57d68520c0e5.Serialize((_714b9f8fd47e343158014373676f77d0_97320cdaa6f641c98d6f57d68520c0e5)data, bitStream);
-                    break;
                 default:
                     logger.Error(Coherence.Log.Error.DefinitionMissingCommandImplementation, ("command", commandType));
                     break;
@@ -309,6 +305,9 @@ namespace Coherence.Generated
 
             switch (inputType)
             {
+                case Definition.Internal_de225920e18d69141b9f2948f155bf5c:
+                    _de225920e18d69141b9f2948f155bf5c.Serialize((_de225920e18d69141b9f2948f155bf5c)inputData.Input, bitStream);
+                    break;
                 default:
                     logger.Error(Coherence.Log.Error.DefinitionMissingInputImplementation, ("input", inputType));
                     break;
