@@ -1,2 +1,20 @@
-input _de225920e18d69141b9f2948f155bf5c [id "0"]
+command _3191300c191ac76428bc17e4f6608e5a_f6bb564de29b44739afeb0033faa61da [id "6", routing "All"]
+
+command _3c92400b913ed6c4d9637508ffc878e8_ec78a70290e64db2a48685c0e87f4f0f [id "7", routing "All"]
+
+command _a06d71d53be2a314a98d5dcd8c25b91e_5c322f881b5045e8bcfdc2b9337e3417 [id "8", routing "All"]
+
+command _c60d72321de4b2449a218850f7e5f096_fec8447946994329ac9d60a106af56ff [id "9", routing "All"]
+
+command _db455cc6222ea5849a51cffbf63248ee_5462dbaea1dc44cf9fd0b7d5206fb79e [id "10", routing "All"]
+
+input _3191300c191ac76428bc17e4f6608e5a [id "0"]
+
+input _3c92400b913ed6c4d9637508ffc878e8 [id "1"]
+
+input _a06d71d53be2a314a98d5dcd8c25b91e [id "2"]
+
+input _c60d72321de4b2449a218850f7e5f096 [id "3"]
+
+input _db455cc6222ea5849a51cffbf63248ee [id "4"]
 

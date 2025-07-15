@@ -6,9 +6,22 @@ public class AuthorityTransfer : MonoBehaviour
 {
     private CoherenceSync sync;
 
-    private void Awake()
+    private void Start()
     {
-        sync = GetComponent<CoherenceSync>();
+        sync = FindAnyObjectByType<CoherenceSync>();
+
+        sync.OnStateAuthority.AddListener(OnAuthorityGained);
+        sync.OnStateRemote.AddListener(OnAuthorityLost);
+    }
+
+    private void OnAuthorityGained()
+    {
+        Debug.Log("AftorityON");
+    }
+
+    private void OnAuthorityLost()
+    {
+        Debug.Log("AftorityOFF");
     }
 
     // Вызывается, например, по нажатию кнопки

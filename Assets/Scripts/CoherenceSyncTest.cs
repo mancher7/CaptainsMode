@@ -11,13 +11,6 @@ public class CoherenceSyncTest : MonoBehaviour
     public GameObject redCapitan;
     public GameObject blueCapitan;
 
-    public GameObject screepts;
-
-    public GameObject buttonCachAutority;
-
-    public TMP_Text timer;
-    public float time = 100f;
-
     void Start()
     {
         for (int i = 0; i < player.Length; i++)
@@ -26,28 +19,15 @@ public class CoherenceSyncTest : MonoBehaviour
             player[i].onClick.AddListener(() => OnButtonClick(index));
         }
         redCapitan.SetActive(true);
-        blueCapitan.SetActive(false);
-    }
+        blueCapitan.SetActive(false);       
+    } 
 
     public int i = 0;
     public int j = 0;
     public int s = 0;
+
     public bool team1 = true;
     public bool team2 = false;
-
-    public void Update()
-    {
-        if (time >= 0)
-        {
-            time -= Time.deltaTime * 1;
-            timer.text = time.ToString("F0");
-        }
-        else
-        {
-            time = 100;
-            timer.text = time.ToString("F0");
-        }
-    }
 
     private void OnButtonClick(int index)
     {
@@ -55,15 +35,12 @@ public class CoherenceSyncTest : MonoBehaviour
         {
             if (team1)
             {
-                AutorityCach();
-
                 player[index].transform.position = team1Position[j].position;
                 player[index].interactable = false;
                 team1 = false;
                 team2 = true;
                 j++;
-
-                AutorityLose();
+               
                 redCapitan.SetActive(false);
                 blueCapitan.SetActive(true);
 
@@ -72,7 +49,6 @@ public class CoherenceSyncTest : MonoBehaviour
 
             if (team2)
             {
-                AutorityCach();
 
                 player[index].transform.position = team2Position[s].position;
                 player[index].interactable = false;
@@ -80,7 +56,6 @@ public class CoherenceSyncTest : MonoBehaviour
                 team1 = true;
                 s++;
 
-                AutorityLose();
                 blueCapitan.SetActive(false);
                 redCapitan.SetActive(true);
 
@@ -89,7 +64,6 @@ public class CoherenceSyncTest : MonoBehaviour
                     blueCapitan.SetActive(false);
 
                     redCapitan.SetActive(false);
-                    timer.alignment = TextAlignmentOptions.Center;
                     InteractOFFButtons();
 
                 }
@@ -97,36 +71,9 @@ public class CoherenceSyncTest : MonoBehaviour
             }
 
         }
-    }
+    }   
 
-
-    public void AutorityLose()
-    {
-        InteractOFFButtons();
-        foreach (var item in player)
-        {
-            item.transform.GetComponent<CoherenceSync>().AbandonAuthority();
-
-        }
-        screepts.GetComponent<CoherenceSync>().AbandonAuthority();
-        //  buttonCachAutority.SetActive(false);
-
-
-    }
-
-    public void AutorityCach()
-    {
-        foreach (var item in player)
-        {
-            item.transform.GetComponent<CoherenceSync>().Adopt();
-        }
-        screepts.GetComponent<CoherenceSync>().Adopt();
-        //   buttonCachAutority.SetActive(true);
-        Invoke("InteractButtons", 0.1f);
-        Invoke("InteractButtons", 0.1f);
-    }
-
-    public void InteractButtons()
+    public void InteractOnButtons()
     {
         foreach (var item in player)
         {
